@@ -16,28 +16,34 @@ public class Main {
                 buildSessionFactory();
 
 
-
         Session session = factory.openSession();
-        Transaction tx=null;
+        Transaction tx = null;
 
-        try{
+        try {
 
             tx = session.beginTransaction();
 
 
-            Patient patient = new Patient(12,"muhammed","sezgin","bas agrisi",15);
-            session.save(patient);
+            Patient patient = new Patient(12, "muhammed", "sezgin", "bas agrisi", 15);
+            session.persist(patient);
 
 
-            List<Patient> patients = session.createQuery("from Patient").list();
+            List<Patient> patients = session.createQuery("from Patient").list(); //tum hastalari gosterme
             System.out.println(patients);
+
+
+            Patient patient1 = session.get(Patient.class, 1); //update islemi
+            System.out.println(patient1.getName());
+            patient1.setName("fazil");
+
+            Patient patient2 = session.get(Patient.class, 1);//delete islemi
+            session.remove(patient2);
 
 
             tx.commit();
 
 
-        }
-        finally{
+        } finally {
             session.close();
 
         }

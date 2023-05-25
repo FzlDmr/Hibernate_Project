@@ -4,26 +4,29 @@ package hibernate;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="t_patients")
+@Table(name = "t_patients")
 public class Patient {
+
     @Id
-    @Column(name="patient_id")
+    @Column(name = "patient_id")
     private int id;
 
-    @Column(name="name")
+    @Column(name = "name")
     private String name;
 
-    @Column(name="surname")
+    @Column(name = "surname")
     private String surname;
 
-    @Column(name="diseases")
+    @Column(name = "diseases")
     private String disease;
 
-    @Id
-    @Column(name="doctors_id")
+
+    @Column(name = "doctors_id")
     private int doctorId;
 
-    public Patient(){}
+
+    public Patient() {
+    }
 
     public int getDoctorId() {
         return doctorId;
@@ -38,8 +41,8 @@ public class Patient {
         this.name = name;
         this.surname = surname;
         this.disease = disease;
-
         this.doctorId=doctorId;
+
     }
 
     public int getId() {
@@ -81,7 +84,7 @@ public class Patient {
                 "id=" + id +
                         " name=" + name +
                         " surname=" + surname +
-                        " disease=" + disease ;
+                        " disease=" + disease;
 
 
     }
