@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- Veritabanı bağlantı ayarları -->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/hospital_db</property>
+        <property name="hibernate.connection.username">dev3</property>
+        <property name="hibernate.connection.password">123456Aa</property>
+        <property name="hibernate.current_session_context_class">
+            org.hibernate.context.internal.ThreadLocalSessionContext</property>
+        <property name="current_session_context_class">thread</property>
+
+        <!-- Veritabanı dialekti -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+        <!-- Etkinleştirilen özellikler -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- Entity sınıflarının paketleri -->
+        <mapping class="hibernate.Patient"/>
+
+        <!-- Ek yapılandırma ayarları -->
+        <!-- ... -->
+    </session-factory>
+</hibernate-configuration>

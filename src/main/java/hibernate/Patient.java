@@ -1,7 +1,7 @@
 package hibernate;
 
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name="t_patients")
